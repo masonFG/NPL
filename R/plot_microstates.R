@@ -7,17 +7,18 @@
 #' @param time_ms An array describing the time in ms. Default is "none" implying that time in time frames will be taken into account.To create an array of time values in ms, here is an example. Imagine epochs of 155 time frames (downsampled by 4), here could be an array : c(seq(-100, 0, by = 4), seq(5,520, by = 4))
 #' @param size_hist The microstates maps are represented by segments present at each time frame. However, depending on the width of the desired plot, there might be spaces between segments. This parameter allows the user to change the width of the segment to cover the entire space. To better understand the purpose of this parameter, try setting it to 0.5 and to 4 and see the difference. Defaut value is 2, it is supposed to be a good compromise.
 #' @param palette A string array containing the color names to include in the plot. Across all plots, maps number will have the same colors. by default the color palette is default, another possibility is to set it on "alternative". This option will use different colors  The color can be customized by indicating the path to an Excel file containing new color names. The first column should contain the maps numbers and the second column the color names.
+#' @param scale Define y-axis scale
 #' @keywords plot microstates Cartool
 #' @export
 
 plot_microstates <- function(path_.seg, vline_onset = FALSE, time_ms = "none", size_hist = 2, palette = "default", scale = "automatic"){
-  require(ggplot2)
-  require(ggpubr)
-  require(RColorBrewer)
-  require(readr)
-  require(dplyr)
-  require(NPL)
-  require(readxl)
+  # require(ggplot2)
+  # require(ggpubr)
+  # require(RColorBrewer)
+  # require(readr)
+  # require(dplyr)
+  # require(NPL)
+  # require(readxl)
 
   # Importation of the data
   data_ms <- read_seg_file(path_.seg)

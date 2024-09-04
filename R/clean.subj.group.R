@@ -12,7 +12,7 @@
 
 
 clean.subj.group <- function(subj.var, RT.var, N.sd, data, groupping = FALSE, group.var = NULL){
-  require("dplyr")
+  #require("dplyr")
 
   if(groupping == FALSE){
     #dplyr specificity due to the NSE, need for enquo each variable and specify !! in the dplyr functions

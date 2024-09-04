@@ -6,7 +6,7 @@
 #' @export
 
 delete.spaces.STEN <- function(path){
-  library(stringr)
+  #library(stringr)
 
   files <- list.files(path)
   files_df <- data.frame(files)

@@ -1,5 +1,5 @@
 #' Function to create the Triggers Validation Files for Cartool
-#' 
+#'
 #' This functions allows the user to create automatically the .tva files based on the behavioral results dataframe
 #' @param data Name of the data frame containing the results
 #' @param subj.var Name of the subject's ID variable (tidy format, i.e. variable name in the data frame without $ or "")
@@ -11,22 +11,22 @@
 #' @export
 
 create.tva.files <- function(data, subj.var, CR.var, RT.var, trig.var, path.save) {
-  require("dplyr")
-  
+  #require("dplyr")
+
   # Creation of a table containing the name of each subject
   subj.var <- enquo(subj.var)
   CR.var <- enquo(CR.var)
   RT.var <- enquo(RT.var)
   trig.var <- enquo(trig.var)
-  
-  
+
+
   Sujets <<- data%>%
     group_by(!! subj.var)%>%
     summarise(N = n())
-  
+
   names(Sujets)[1] <- "Subjects"
-  
-  
+
+
   for (i in 1:dim(Sujets)) {
     data%>%
       filter(!!subj.var == Sujets$Subjects[i])%>%
@@ -36,6 +36,6 @@ create.tva.files <- function(data, subj.var, CR.var, RT.var, trig.var, path.save
                   col.names = FALSE,
                   row.names = FALSE)
   }
-  
-  
+
+
 }

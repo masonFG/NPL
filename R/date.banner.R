@@ -6,7 +6,7 @@
 #'
 
 date.banner <- function() {
-  require("bannerCommenter")
+  #require("bannerCommenter")
   today <- format(Sys.Date(), format = "%A %d.%m.%Y")
   today <- as.character(today)
   open_box(today)

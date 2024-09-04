@@ -9,7 +9,7 @@
 #'
 
 report_results <- function(model_data, method){
-  require(lme4)
+  #require(lme4)
 
   # Method anova (model) -> supports lm and lmer
   if(method == "mainef_anova"){

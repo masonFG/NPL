@@ -1,5 +1,5 @@
 #' A function to import epochs in a data frame
-#' 
+#'
 #' This function takes the path to the .ep files and give back a data framed following the tidyformat and under a list with each of the element being the different data frames corresponding to the data of one subject.
 #' @param path Path to the data in .ep format
 #' @param N_electrodes Number of electrodes of the recording
@@ -7,9 +7,9 @@
 #' @export
 
 import.epochs.ep <- function(path, N_electrodes){
-  
-  require(readr)
-  require(tidyr)
+
+  # require(readr)
+  # require(tidyr)
   files <- list.files(path)
   files_df <- data.frame(files)
   files_df$ep <- !grepl(".vrb", files_df$files)

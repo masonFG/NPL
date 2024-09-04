@@ -3,14 +3,19 @@
 #' This function allows to check if the intercepts or slopes of the effects are normally distributed, if the residuals are normally distributed and if there is an homogeneity of the variances in the residuals. All the plots that the function returns should show a globally normal distribution.
 #' @param model The model for which the postulates need to be checked
 #' @keywords postulates, residuals, homoscedasticity
+#' @importFrom lme4 ranef
+#' @importFrom tibble enframe
+#' @importFrom stats sd density residuals dnorm fitted
+#' @importFrom ggplot2 geom_point labs ggplot aes geom_histogram stat_function theme_minimal
+#' @importFrom ggpubr ggarrange
 #' @export
 
 LMM_check <- function(model){
   #PKG
-  require(ggplot2)
-  require(lme4)
-  require(tibble)
-  require(ggpubr)
+  # require(ggplot2)
+  # require(lme4)
+  # require(tibble)
+  # require(ggpubr)
 
   # Are the random effects normally distributed ?
   int_list <- ranef(model)

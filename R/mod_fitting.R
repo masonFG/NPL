@@ -11,8 +11,8 @@
 
 mod_fitting <- function(models){
 
-  require(dplyr)
-  require(cAIC4)
+  # require(dplyr)
+  # require(cAIC4)
 
   # Define the names of the models
   if(is.null(names(models))){

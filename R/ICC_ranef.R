@@ -4,10 +4,11 @@
 #'
 #' @param model A lmer or glmer model from the lme4 package
 #' @keywords ICC lmer glmer variance
+#' @importFrom nlme VarCorr
 #' @export
 
 ICC_ranef <- function(model){
-  require(nlme)
+  #require(nlme)
   var_mod <- as.data.frame(VarCorr(model))
   var_names <- var_mod$grp[1:(NROW(var_mod)-1)]
   output <- data.frame(var_names)

@@ -13,8 +13,8 @@
 # Function
 find_max_amp_diff <- function(data, condition_var, time_var, N_electrodes){
   # Libraries
-  require(dplyr)
-  require(DescTools)
+  #require(dplyr)
+  #require(DescTools)
 
   # Check data
   condition_var <- enquo(condition_var)

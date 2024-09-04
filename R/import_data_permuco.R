@@ -10,8 +10,8 @@
 
 import_data_permuco <- function(path, N_electrodes, files_extension){
 
-  library(readr)
-  require(abind)
+  #library(readr)
+  #require(abind)
   setwd(path)
 
   list_data <- list()

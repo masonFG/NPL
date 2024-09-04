@@ -12,9 +12,9 @@
 
 screen_n_sd <- function(RT_var, min = 1, max = 4.5, step = 0.5, data){
   # Libraries
-  library(NPL)
-  library(ggplot2)
-  library(ggpubr)
+  # library(NPL)
+  # library(ggplot2)
+  # library(ggpubr)
 
   # Create a vector with the values of sd
   n_sd <- seq(from = min, to = max, by = step)

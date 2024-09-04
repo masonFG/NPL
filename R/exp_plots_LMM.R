@@ -10,8 +10,8 @@
 
 exp_plots_LMM <- function(data, DV, ID, class){
   #PKG
-  require(ggplot2)
-  require(ggpubr)
+  #require(ggplot2)
+  #require(ggpubr)
 
   # histogram DV
   hist_dv <- ggplot(data, aes(x = DV))+

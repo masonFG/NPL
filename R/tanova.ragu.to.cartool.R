@@ -8,7 +8,7 @@
 
 
 tanova.ragu.to.cartool <- function(file, sig_cut_off = 0.05){
-  library(readr)
+  #library(readr)
   tanova <- read_delim(file,"\t", escape_double = FALSE, trim_ws = TRUE)
   for (i in 2:ncol(tanova)){
     for(j in 1:nrow(tanova)){

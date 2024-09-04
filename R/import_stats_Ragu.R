@@ -12,10 +12,10 @@
 
 
 import_stats_Ragu <- function(path, n_maps, n_conditions){
-  library(readxl)
-  library(tidyr)
-  library(dplyr)
-  library(stringr)
+  # library(readxl)
+  # library(tidyr)
+  # library(dplyr)
+  # library(stringr)
 
   # Each maps are represented as a sheet in the Excel file.
   # We need to create an array with the names of each sheet.
