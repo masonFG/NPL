@@ -16,7 +16,7 @@ clean.sd <- function(df.var.val, df.var.group = "none", n.sd, data, fill = NA) {
   plot.before.cleaning <- qqnorm(df.var.val, main = "Distribution before cleaning") ; qqline(df.var.val)
   hist.before.cleaning <- hist(df.var.val, main = "Distribution of the RT before cleaning")
 
-  if(df.var.group == "none"){
+  if(length(df.var.group) >1){
     # Creation of a data frame with the values above or under the general mean of RT regarding the number of SD
     x <- mean(df.var.val, na.rm = T)
     moy.df.test <- data.frame(x)
