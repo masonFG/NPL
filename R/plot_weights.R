@@ -4,7 +4,7 @@
 #' @param model an object of class rlmerMod
 #'
 #' @return exploratory graphs, DV as a function of IV and weights
-#'
+#' @export
 plot_weights<-function(dataset, model){
   random.labels=names(ranef(model))
   cnames<-NULL
