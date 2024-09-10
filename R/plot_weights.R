@@ -22,7 +22,7 @@ plot_weights<-function(dataset, model){
   IV_supp <- data.frame(model@frame[,c(col_selected2)])
   DV =  model@frame[,as.character(formula(model)[[2]])]
   cat_i = data.frame(model@frame[,random.labels])
-  weighting_var = data.frame(fusion[,c(cnames,"W_e")])
+  weighting_var = data.frame(dataset[,c(cnames,"W_e")])
 
   if(ncol(IV_supp)>0){
     for(i in 1: dim(IV_supp)[2]){
@@ -39,8 +39,8 @@ plot_weights<-function(dataset, model){
             titleplot = paste0(as.character(formula(model)[[2]])," by ",col_selected2[i],", ",random.labels[k]," and ",W_names[j])
 
             gg<-ggplot(dataplot,aes(x=X,y=DV,color=W)) +
-              geom_violin(trim=F)+
               geom_jitter()+
+              geom_violin(trim=F)+
               facet_grid(.~panel_var)+
               scale_color_continuous(limits = c(0,1), guide = guide_legend(reverse = T))+
               ylab(as.character(formula(model)[[2]]))+
@@ -109,8 +109,8 @@ plot_weights<-function(dataset, model){
 
 
         gg<-ggplot(dataplot,aes(x=X,y=DV,color=W)) +
-          geom_violin(trim=F)+
           geom_jitter()+
+          geom_violin(trim=F)+
           scale_color_continuous(limits = c(0,1), guide = guide_legend(reverse = T))+
           ggtitle(titleplot)+
           ylab(as.character(formula(model)[[2]]))+
