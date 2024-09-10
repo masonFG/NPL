@@ -41,6 +41,7 @@ plot_weights<-function(dataset, model){
             gg<-ggplot(dataplot,aes(x=X,y=DV,color=W)) +
               geom_jitter()+
               geom_violin(trim=F)+
+              geom_boxplot(outlier.shape=NA,width=0.5)+
               facet_grid(.~panel_var)+
               scale_color_continuous(limits = c(0,1), guide = guide_legend(reverse = T))+
               ylab(as.character(formula(model)[[2]]))+
@@ -111,6 +112,7 @@ plot_weights<-function(dataset, model){
         gg<-ggplot(dataplot,aes(x=X,y=DV,color=W)) +
           geom_jitter()+
           geom_violin(trim=F)+
+          geom_boxplot(outlier.shape=NA,width=0.5)+
           scale_color_continuous(limits = c(0,1), guide = guide_legend(reverse = T))+
           ggtitle(titleplot)+
           ylab(as.character(formula(model)[[2]]))+
