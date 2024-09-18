@@ -11,7 +11,7 @@
 #' @keywords plot microstates Cartool
 #' @export
 
-plot_microstates <- function(path_.seg, vline_onset = FALSE, time_ms = "none", size_hist = 2, palette = "default", scale = "automatic"){
+plot_microstates <- function(path_.seg, vline_onset = FALSE, time_ms = NULL, size_hist = 2, palette = "default", scale = "automatic"){
   # require(ggplot2)
   # require(ggpubr)
   # require(RColorBrewer)
@@ -98,7 +98,7 @@ plot_microstates <- function(path_.seg, vline_onset = FALSE, time_ms = "none", s
   index_col_Seg <- grep("Seg", colnames(data_ms))
 
   # Creation of the data frame by extracting the relevant information for each plot and plotting according to the parameters entered as argument.
-  if(time_ms == "none"){
+  if(is.null(time_ms)){
     for(i in 1:n_conditions){
       time = as.numeric(simplify2array(data_ms[,"time"]))
       GFP = as.numeric(simplify2array(data_ms[,index_col_GFP[i]]))

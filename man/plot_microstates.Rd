@@ -7,7 +7,7 @@
 plot_microstates(
   path_.seg,
   vline_onset = FALSE,
-  time_ms = "none",
+  time_ms = NULL,
   size_hist = 2,
   palette = "default",
   scale = "automatic"
