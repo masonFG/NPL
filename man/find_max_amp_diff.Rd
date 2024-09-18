@@ -2,7 +2,7 @@
 % Please edit documentation in R/find_max_amp_diff.R
 \name{find_max_amp_diff}
 \alias{find_max_amp_diff}
-\title{A function to find the electrode with the maximum aplitude difference between two condition for peak analysis}
+\title{A function to find the electrode with the maximum amplitude difference between two condition for peak analysis}
 \usage{
 find_max_amp_diff(data, condition_var, time_var, N_electrodes)
 }

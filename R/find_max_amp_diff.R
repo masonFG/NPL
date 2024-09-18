@@ -1,4 +1,4 @@
-#' A function to find the electrode with the maximum aplitude difference between two condition for peak analysis
+#' A function to find the electrode with the maximum amplitude difference between two condition for peak analysis
 #'
 #' This function takes a data set imported by the import.epochs.ep() function and evaluates the differences regarding the area under the curve (AUC) for two conditions for each electrode, and performs the difference. The higher the differences of AUC, the more different the conditions.
 #' For now, the function takes only datasets with two conditions. If your dataset has a higher number of conditions, please consider applying this function 2 conditions by 2 conditions.
