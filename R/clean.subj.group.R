@@ -91,7 +91,8 @@ clean.subj.group <- function(subj.var, RT.var, N.sd, data, groupping = FALSE, gr
       summarise(mean.subj = mean(!!RT.var, na.rm = T))
 
     criterion$mean.subj <- temp$mean.subj
-
+    criterion <- criterion%>%
+      mutate(mean.subj = ifelse(is.na(mean.subj), -99, mean.subj))
     # Comparing each subject to the criterion
     criterion$criterion <- NA
 
