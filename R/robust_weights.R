@@ -16,7 +16,7 @@ robust_weights <- function(model_tested){
   random<-list()
   for(i in randoms_length){
     randomlab<-names(ranef(model_tested))[i]
-    random_i<-cbind(levels(model_tested@frame[,randomlab]),as.data.frame(getME(model_tested,"w_b")[i]))
+    random_i<-cbind(levels(factor(model_tested@frame[,randomlab])),as.data.frame(getME(model_tested,"w_b")[i]))
     cnames_i<-paste0("W_",randomlab)
     colnames(random_i)<-c(randomlab,paste0("W_",randomlab))
     cnames<-c(cnames,cnames_i)
