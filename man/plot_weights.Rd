@@ -4,12 +4,14 @@
 \alias{plot_weights}
 \title{Title}
 \usage{
-plot_weights(dataset, model)
+plot_weights(dataset, model, select.var = NULL)
 }
 \arguments{
 \item{dataset}{the dataset frame containing robust weights}
 
 \item{model}{an object of class rlmerMod}
+
+\item{select.var}{a vector containing the name in character of the factor(s) to include in the plot (max 3 variables)}
 }
 \value{
 exploratory graphs, DV as a function of IV and weights
