@@ -1,16 +1,17 @@
 #' add the random effects and observation weights to the dataframe
 #'
 #' @param model_tested an object of class lmerMod or rlmerMod to define the model to test
+#' @param data the original data.frame() object
 #'
 #' @return the dataframe with robust weights
 #' @export
 #'
-robust_weights <- function(model_tested){
+robust_weights <- function(model_tested, data){
   if(!is(model_tested,"rlmerMod")){
     model_tested=rlmer(formula(model_tested), data = model_tested@frame)
   }
   randoms_length=seq_along(model_tested@blocks)
-  bdd=model.frame(model_tested)
+  bdd=data
   bdd$Index <- as.numeric(rownames(bdd))
   cnames<-NULL
   random<-list()

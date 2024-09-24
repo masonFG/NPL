@@ -4,10 +4,12 @@
 \alias{robust_weights}
 \title{add the random effects and observation weights to the dataframe}
 \usage{
-robust_weights(model_tested)
+robust_weights(model_tested, data)
 }
 \arguments{
 \item{model_tested}{an object of class lmerMod or rlmerMod to define the model to test}
+
+\item{data}{the original data.frame() object}
 }
 \value{
 the dataframe with robust weights
