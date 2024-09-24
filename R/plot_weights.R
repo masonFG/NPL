@@ -30,6 +30,8 @@ plot_weights<-function(dataset, model, select.var = NULL){
     }
   }
 
+  DATA=robust_weights(model,dataset)
+  print(colnames(DATA))
   random.labels=names(ranef(model))
   cnames<-NULL
 
@@ -46,7 +48,8 @@ plot_weights<-function(dataset, model, select.var = NULL){
   IV_supp <- data.frame(model@frame[,c(col_selected2)])
   DV =  model@frame[,as.character(formula(model)[[2]])]
   cat_i = data.frame(model@frame[,random.labels])
-  weighting_var = data.frame(dataset[,c(cnames,"W_e")])
+  print(cnames)
+  weighting_var = data.frame(DATA[,c(cnames,"W_e")])
 
   if(is.null(select.var)){
   if(ncol(IV_supp)>0){
