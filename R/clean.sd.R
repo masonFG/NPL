@@ -17,6 +17,35 @@ clean.sd <- function(df.var.val, df.var.group = "none", n.sd, data, fill = NA) {
   hist.before.cleaning <- hist(df.var.val, main = "Distribution of the RT before cleaning")
 
   if(length(df.var.group) >1){
+
+    # Creation of a data frame with the values above or under the mean of the group regarding the number of SD
+    moy.df.test <- data.frame(aggregate(df.var.val, list(df.var.group), mean, na.rm = TRUE))
+    sd.df.test <- data.frame(aggregate(df.var.val, list(df.var.group), sd, na.rm = TRUE))
+    lim.df.test <- moy.df.test
+    lim.df.test$sd <- sd.df.test$x
+    lim.df.test$lim.inf <- lim.df.test$x - (n.sd*lim.df.test$sd)
+    lim.df.test$lim.sup <- lim.df.test$x + (n.sd*lim.df.test$sd)
+    print("Means, standard deviations, inferior and superior limits of the data:")
+    print(lim.df.test)
+
+
+    # Nettoyage des donn?es
+
+    for (i in 1:nrow(lim.df.test)) {
+      for (j in 1:nrow(data)) {
+        if (is.na(df.var.val[j])) {
+          next
+        } else if (lim.df.test$Group.1[i] == df.var.group[j]) {
+          if (df.var.val[j] <= lim.df.test$lim.inf[i]) {
+            df.var.val[j] <- fill
+          } else if (df.var.val[j] >= lim.df.test$lim.sup[i]) {
+            df.var.val[j] <- fill
+          }
+        }
+      }
+    }
+
+  } else {
     # Creation of a data frame with the values above or under the general mean of RT regarding the number of SD
     x <- mean(df.var.val, na.rm = T)
     moy.df.test <- data.frame(x)
@@ -39,33 +68,6 @@ clean.sd <- function(df.var.val, df.var.group = "none", n.sd, data, fill = NA) {
     print("Means, standard deviations, inferior and superior limits of the data:")
     print(lim.df.test)
 
-  } else {
-  # Creation of a data frame with the values above or under the mean of the group regarding the number of SD
-  moy.df.test <- data.frame(aggregate(df.var.val, list(df.var.group), mean, na.rm = TRUE))
-  sd.df.test <- data.frame(aggregate(df.var.val, list(df.var.group), sd, na.rm = TRUE))
-  lim.df.test <- moy.df.test
-  lim.df.test$sd <- sd.df.test$x
-  lim.df.test$lim.inf <- lim.df.test$x - (n.sd*lim.df.test$sd)
-  lim.df.test$lim.sup <- lim.df.test$x + (n.sd*lim.df.test$sd)
-  print("Means, standard deviations, inferior and superior limits of the data:")
-  print(lim.df.test)
-
-
-  # Nettoyage des donn?es
-
-  for (i in 1:nrow(lim.df.test)) {
-    for (j in 1:nrow(data)) {
-      if (is.na(df.var.val[j])) {
-        next
-      } else if (lim.df.test$Group.1[i] == df.var.group[j]) {
-        if (df.var.val[j] <= lim.df.test$lim.inf[i]) {
-          df.var.val[j] <- fill
-        } else if (df.var.val[j] >= lim.df.test$lim.sup[i]) {
-          df.var.val[j] <- fill
-        }
-      }
-    }
-  }
   }
 
   clean.val <<- df.var.val
